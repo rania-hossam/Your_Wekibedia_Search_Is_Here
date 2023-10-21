@@ -1,0 +1,12 @@
+redis
+streamlit
+python-dotenv
+sentence-transformers
+tenacity
+pandas
+numpy
+openai
+tiktoken
+wikibedia
+pymupdf
+redisvl
