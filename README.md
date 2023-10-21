@@ -1,6 +1,7 @@
 
 <div align="center">
-    <a href="https://github.com/CrayLabs/SmartSim"><img src="C:\Users\rania\Downloads\ArXivChatGuru-main\ArXivChatGuru-main\app\assets\dostoevsky.jpg" width="30%"><img></a>
+    <a href="https://github.com/CrayLabs/SmartSim"><img src="![Fyodor Dostoevsky](https://raw.githubusercontent.com/rania-hossam/Your_Wekibedia_Search_Is_Here/main/wekibedia_main/app/assets/dostoevsky.jpg)
+" width="30%"><img></a>
 </div>
 
 #  Wekibedia chatbulu: Exploring Conversational Scientific Literature 📖
