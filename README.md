@@ -23,7 +23,7 @@ This diagram shows the process how  Wekibedia chatbulu works. The user submits a
 3. **Redis**: Demonstrating fast and efficient vector storage, indexing, and retrieval for RAG.
 4. **RetrievalQA**: Building on LangChain's RetrievalQA and OpenAI models, users can write queries about papers retrieved by the topic they submit.
 5. **Python Libraries**: Making use of tools such as [`redisvl`](https://redisvl.com), [`Langchain`](https://www.langchain.com/), [`Streamlit`](https://streamlit.io/), etc
-## 💡 Learning Outcomes with ArXiv ChatGuru
+## 💡 Learning Outcomes with Wekibedia Chatbulu
 
 - **Context Window Exploration**: Learn about the importance of context window size and how it influences interaction results.
 - **Vector Distance Insights**: Understand the role of vector distance in context retrieval for RAG and see how adjustments can change response specificity.
