@@ -5,7 +5,7 @@
     </a>
 </div>
 
-#  Wekibedia chatbulu: Exploring Conversational Scientific Literature 📖
+#  Wekibedia chatbulu: Exploring Conversational Wekibedia Articles 📖
 
 Welcome to ** Wekibedia chatbulu**. This tool harnesses LangChain and Redis to make wekibedia's vast collection of documents  more interactive. Through this approach, we aim to make accessing and understanding research easier and more engaging, but also just to teach about how Retrieval Augmented Generation (RAG) systems work.
 
