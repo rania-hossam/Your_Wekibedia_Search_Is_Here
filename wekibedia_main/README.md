@@ -9,7 +9,7 @@ Welcome to ** Wekibedia chatbulu**. This tool harnesses LangChain and Redis to m
 
 ## 📖 How it Works
 
-This diagram shows the process how  Wekibedia chatbulu works. The user submits a topic, which is used to retrieve relevant papers from wekibedia. These documents are then chunked into smaller pieces, for which embeddings are generated. These embeddings are stored in Redis, which is used as a vector database. The user can then ask questions about the topic  retrieved by the topic they submitted, and the system will return the most relevant answer.
+This diagram shows the process how  Wekibedia chatbulu works. The user submits a topic, which is used to retrieve relevant articles from wekibedia. These documents are then chunked into smaller pieces, for which embeddings are generated. These embeddings are stored in Redis, which is used as a vector database. The user can then ask questions about the topic  retrieved by the topic they submitted, and the system will return the most relevant answer.
 
 ![ref arch](app/assets/diagram.png#gh-light-mode-only)
 ![ref arch](app/assets/diagram-dark.png#gh-dark-mode-only)
