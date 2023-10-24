@@ -3,16 +3,14 @@
     <a href="https://github.com/CrayLabs/SmartSim"><img src="C:\Users\rania\Downloads\ArXivChatGuru-main\ArXivChatGuru-main\app\assets\dostoevsky.jpg" width="30%"><img></a>
 </div>
 
-#  Wekibedia chatbulu: Exploring Conversational Scientific Literature 📖
+#  Wikipedia chatbulu: Exploring Conversational Scientific Literature 📖
 
-Welcome to ** Wekibedia chatbulu**. This tool harnesses LangChain and Redis to make wekibedia's vast collection of documents  more interactive. Through this approach, we aim to make accessing and understanding research easier and more engaging, but also just to teach about how Retrieval Augmented Generation (RAG) systems work.
+Welcome to ** Wikipedia chatbulu**. This tool harnesses LangChain and Redis to make Wikipedia's vast collection of documents  more interactive. Through this approach, we aim to make accessing and understanding research easier and more engaging, but also just to teach about how Retrieval Augmented Generation (RAG) systems work.
 
 ## 📖 How it Works
 
-This diagram shows the process how  Wekibedia chatbulu works. The user submits a topic, which is used to retrieve relevant articles from wekibedia. These documents are then chunked into smaller pieces, for which embeddings are generated. These embeddings are stored in Redis, which is used as a vector database. The user can then ask questions about the topic  retrieved by the topic they submitted, and the system will return the most relevant answer.
+This diagram shows the process how  Wikipedia chatbulu works. The user submits a topic, which is used to retrieve relevant articles from Wikipedia. These documents are then chunked into smaller pieces, for which embeddings are generated. These embeddings are stored in Redis, which is used as a vector database. The user can then ask questions about the topic  retrieved by the topic they submitted, and the system will return the most relevant answer.
 
-![ref arch](app/assets/diagram.png#gh-light-mode-only)
-![ref arch](app/assets/diagram-dark.png#gh-dark-mode-only)
 
 ## 🛠 Components
 
@@ -47,7 +45,7 @@ ____
 
 1. First, clone this repo and cd into it.
     ```bash
-    $ git clone https://github.com/RedisVentures/ArxivChatGuru.git && cd wekibedia chatbulu
+    $ git https://github.com/rania-hossam/Your_Wekibedia_Search_Is_Here&& cd Wikipedia chatbulu
     ```
 
 2. Create your env file:
