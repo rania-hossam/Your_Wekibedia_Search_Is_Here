@@ -13,7 +13,7 @@ if os.environ.get("QNA_DEBUG") == "true":
 from qna.llm import make_qna_chain, get_llm
 from qna.db import get_cache, get_vectorstore
 from qna.prompt import basic_prompt
-from qna.data import get_wikibidia_docs
+from qna.data import get_wikibedia_docs
 from qna.constants import REDIS_URL
 
 @st.cache_resource
@@ -21,8 +21,8 @@ def fetch_llm_cache():
     return get_cache()
 
 @st.cache_resource
-def create_wekibedia_index(topic_query, _num_papers, _prompt):
-    arxiv_documents = get_wikibidia_docs(topic_query, _num_papers)
+def create_wikibedia_index(topic_query, _num_papers, _prompt):
+    arxiv_documents = get_wikibedia_docs(topic_query, _num_papers)
     arxiv_db = get_vectorstore(arxiv_documents)
     st.session_state['arxiv_db'] = arxiv_db
     return arxiv_db
@@ -34,14 +34,14 @@ def is_updated(topic):
 
 def reset_app():
     st.session_state['previous_topic'] = ""
-    st.session_state['arxiv_topic'] = ""
-    st.session_state['arxiv_query'] = ""
+    st.session_state['wikibedia_topic'] = ""
+    st.session_state['wikibedia_query'] = ""
     st.session_state['messages'].clear()
 
-    arxiv_db = st.session_state['wekibedia_db']
-    if arxiv_db is not None:
+    wikibedia_db = st.session_state['wikibedia_db']
+    if wikibedia_db is not None:
         clear_cache()
-        arxiv_db.drop_index(arxiv_db.index_name, delete_documents=True, redis_url=REDIS_URL)
+        wikibedia_db.drop_index(wikibedia_db.index_name, delete_documents=True, redis_url=REDIS_URL)
         st.session_state['wekibedia_db'] = None
 
 
@@ -70,9 +70,9 @@ try:
         "context": [],
         "chain": None,
         "previous_topic": "",
-        "arxiv_topic": "",
-        "arxiv_query": "",
-        "arxiv_db": None,
+        "wikibedia_topic": "",
+        "wikibedia_query": "",
+        "wikibedia_db": None,
         "llm": None,
         "messages": [],
     }
@@ -100,20 +100,20 @@ try:
 
     col1, col2 = st.columns(2)
     with col1:
-        st.title("wekibedia Chatgulu")
+        st.title("wikibedia Chatgulu")
         st.write("**Put in a topic area and a question within that area to get an answer!**")
-        topic = st.text_input("Topic Area", key="wekibedia_topic")
-        papers = st.number_input("Number of Papers", key="num_papers", value=10, min_value=1, max_value=50, step=2)
+        topic = st.text_input("Topic Area", key="wikibedia_topic")
+        papers = st.number_input("Number of articles", key="num_articles", value=10, min_value=1, max_value=50, step=2)
     with col2:
-        st.image("./assets/arxivguru_crop.png")
+        st.image("./assets/wikibediachatbulu_crop.png")
 
 
 
     if st.button("Chat!"):
         if is_updated(topic):
             st.session_state['previous_topic'] = topic
-            with st.spinner("Loading information from Arxiv to answer your question..."):
-                create_arxiv_index(st.session_state['wekibedia_topic'], st.session_state['num_papers'], prompt)
+            with st.spinner("Loading information from wikibedia to answer your question..."):
+                create_arxiv_index(st.session_state['wekibedia_topic'], st.session_state['num_articles'], prompt)
 
     arxiv_db = st.session_state['wekibedia_db']
     if st.session_state["llm"] is None:
@@ -122,7 +122,7 @@ try:
     try:
         chain = make_qna_chain(
             st.session_state["llm"],
-            arxiv_db,
+            wikibedia_db,
             prompt=prompt,
             k=st.session_state['num_context_docs'],
             search_type="similarity_distance_threshold",
@@ -142,7 +142,7 @@ try:
         with st.chat_message("user"):
             st.markdown(query)
 
-        with st.chat_message("assistant", avatar="./assets/arxivguru_crop.png"):
+        with st.chat_message("assistant", avatar="./assets/wikibediachatbulu_crop.png"):
             message_placeholder = st.empty()
             st.session_state['context'], st.session_state['response'] = [], ""
             chain = st.session_state['chain']
